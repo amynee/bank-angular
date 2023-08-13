@@ -1,0 +1,46 @@
+<div class="container-fluid card">
+    <h3 class="text-center">New Transaction</h3>
+    <hr>
+    <div class="alert alert-danger" role="alert">
+      <p>alert message</p>
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Transaction type</label>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Choose a transaction type</option>
+        <option>DEPOSIT</option>
+        <option>TRANSFER</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Choose a contact</label>
+      <select class="form-select" aria-label="Default select example">
+        <option>Select a contact from the list</option>
+        <option>Full Name</option>
+        <option>Full Name</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="amount" class="form-label">Amount</label>
+      <input type="number" class="form-control" id="amount" placeholder="Exp: 500€">
+    </div>
+    <div class="mb-3">
+      <label for="iban" class="form-label">IBAN</label>
+      <input type="text" class="form-control" id="iban" placeholder="AB12 1234 1234 1234">
+    </div>
+    <!--<div class="mb-3">
+      <label for="repeat-password" class="form-label">Repeat password</label>
+      <input type="password" class="form-control" id="repeat-password" placeholder="Repeat password">
+    </div>-->
+    <div class="d-flex justify-content-end mb-3">
+      <button type="button" class="btn btn-link me-3">
+        <em class="fas fa-times me-2"></em>Cancel
+      </button>
+      <div>
+        <button type="button" class="btn btn-success">
+          <em class="fas fa-save me-2"></em>Save
+        </button>
+      </div>
+    </div>
+</div>
