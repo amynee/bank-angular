@@ -23,10 +23,28 @@
             <td>{{contact.email}}</td>
             <td>{{contact.iban}}</td>
             <td class="text-center">
-                <em class="fas fa-pencil cursor-pointer" style="color: #0d6efd;"></em>
-                <em class="fas fa-trash cursor-pointer ms-3" style="color: #dc3545;"></em>
+                <em class="fas fa-pencil cursor-pointer" style="color: #0d6efd;" (click)="editContact(contact.id)"></em>
+                <em class="fas fa-trash cursor-pointer ms-3" (click)="saveContactId(contact.id)" style="color: #dc3545;" data-bs-toggle="modal" data-bs-target="#deleteContactModal"></em>
             </td>
           </tr>
         </tbody>
     </table>
+</div>
+
+<div class="modal fade" id="deleteContactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Delete</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you really want to delete this contact?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cancelDelete()"><em class="fas fa-times me-1"></em> Close</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirmDelete()"><em class="fas fa-trash me-1"></em> Delete</button>
+      </div>
+    </div>
+  </div>
 </div>

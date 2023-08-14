@@ -1,24 +1,24 @@
 <div class="container-fluid card">
-    <h3 class="text-center">Create Contact</h3>
+    <h3 class="text-center">{{title}}</h3>
     <hr>
-    <div class="alert alert-danger" role="alert">
-      <p>alert message</p>
+    <div class="alert alert-danger" role="alert" *ngIf="errorMsgs.length > 0">
+      <ng-container *ngFor="let err of errorMsgs">{{err}}<br /></ng-container>
     </div>
     <div class="mb-3">
       <label for="firstname" class="form-label">Firstname</label>
-      <input type="text" class="form-control" id="firstname" placeholder="Firstname">
+      <input [(ngModel)]="contactRequest.firstName" type="text" class="form-control" id="firstname" placeholder="Firstname">
     </div>
     <div class="mb-3">
       <label for="lastname" class="form-label">Lastname</label>
-      <input type="text" class="form-control" id="lastname" placeholder="Lastname">
+      <input [(ngModel)]="contactRequest.lastName" type="text" class="form-control" id="lastname" placeholder="Lastname">
     </div>
     <div class="mb-3">
       <label for="login" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="login" placeholder="name@example.com">
+      <input [(ngModel)]="contactRequest.email" type="email" class="form-control" id="login" placeholder="name@example.com">
     </div>
     <div class="mb-3">
       <label for="iban" class="form-label">IBAN</label>
-      <input type="text" class="form-control" id="iban" placeholder="iban">
+      <input [(ngModel)]="contactRequest.iban" type="text" class="form-control" id="iban" placeholder="iban">
     </div>
     <!--<div class="mb-3">
       <label for="repeat-password" class="form-label">Repeat password</label>
@@ -29,7 +29,7 @@
         <em class="fas fa-times me-2"></em>Cancel
       </button>
       <div>
-        <button type="button" class="btn btn-success">
+        <button type="button" class="btn btn-success" (click)="save()">
           <em class="fas fa-save me-2"></em>Save
         </button>
       </div>

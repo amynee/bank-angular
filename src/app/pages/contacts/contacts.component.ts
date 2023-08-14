@@ -13,6 +13,8 @@ export class ContactsComponent implements OnInit {
 
   contacts: ContactResponse[] = [];
 
+  contactIdToDelete: number | undefined;
+
   constructor(
     private router: Router,
     private contactService: ContactsService,
@@ -35,5 +37,28 @@ export class ContactsComponent implements OnInit {
           this.contacts = data;
         }
       })
+  }
+
+  editContact(id: number | undefined) {
+    this.router.navigate(['contacts', 'manage', id])
+  }
+
+  saveContactId(contactId: number | undefined) {
+    this.contactIdToDelete = contactId;
+  }
+
+  cancelDelete() {
+    this.contactIdToDelete = undefined;
+  }
+
+  confirmDelete() {
+    if (this.contactIdToDelete) {
+      this.contactService.delete({'contact-id': this.contactIdToDelete})
+        .subscribe({
+          next: () => {
+            this.fetchAllContacts();
+          }
+        })
+    }
   }
 }
